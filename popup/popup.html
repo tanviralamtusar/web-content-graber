@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Web Content Grabber</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon32.png" alt="" width="24" height="24">
+    <div>
+      <h1>Web Content Grabber</h1>
+      <p id="page" class="muted">…</p>
+    </div>
+  </header>
+
+  <section class="actions">
+    <button data-mode="html" class="primary">
+      <strong>Save complete page</strong>
+      <span>One .html file. Images, CSS and fonts are embedded, so it works offline.</span>
+    </button>
+    <div class="row">
+      <button data-mode="markdown"><strong>Markdown</strong><span>.md</span></button>
+      <button data-mode="text"><strong>Text</strong><span>.txt</span></button>
+      <button data-mode="images"><strong>Images</strong><span>all files</span></button>
+    </div>
+  </section>
+
+  <section class="opts">
+    <label class="select">
+      Content area
+      <select id="scope">
+        <option value="auto">Auto (whole page for HTML, main content for MD/TXT)</option>
+        <option value="page">Whole page</option>
+        <option value="pick">Pick an area on the page…</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="autoScroll"> Scroll page first to load lazy content</label>
+    <label><input type="checkbox" id="inlineAssets"> Embed images, fonts &amp; CSS assets</label>
+    <label><input type="checkbox" id="skipUnusedCssAssets"> Skip CSS assets the page never loaded (smaller file)</label>
+    <label><input type="checkbox" id="removeScripts"> Remove scripts (static, reliable snapshot)</label>
+    <label><input type="checkbox" id="saveAs"> Ask where to save</label>
+  </section>
+
+  <footer>
+    <div class="bar"><div id="fill"></div></div>
+    <p id="status" class="muted">Ready.</p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

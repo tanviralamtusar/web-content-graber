@@ -1,0 +1,57 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --card: #f9fafb;
+  --accent: #2563eb;
+  --accent-fg: #ffffff;
+  --error: #dc2626;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18181b;
+    --fg: #f4f4f5;
+    --muted: #a1a1aa;
+    --line: #3f3f46;
+    --card: #232327;
+    --accent: #3b82f6;
+    --error: #f87171;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  width: 360px;
+  margin: 0;
+  padding: 14px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+header { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+h1 { font-size: 15px; margin: 0; }
+.muted { color: var(--muted); margin: 0; }
+#page { max-width: 290px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.actions { display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+button {
+  display: flex; flex-direction: column; gap: 2px; align-items: flex-start;
+  padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--card); color: var(--fg); font: inherit; text-align: left; cursor: pointer;
+}
+button span { color: var(--muted); font-size: 12px; }
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+button.primary span { color: var(--accent-fg); opacity: .85; }
+button:disabled { opacity: .5; cursor: progress; }
+
+.opts { display: grid; gap: 7px; margin: 14px 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; }
+.opts label { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+.opts label.select { flex-direction: column; align-items: stretch; gap: 4px; color: var(--muted); }
+select { padding: 5px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); font: inherit; }
+
+.bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+#fill { height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+#status { margin-top: 6px; min-height: 18px; }
+#status.error { color: var(--error); }
